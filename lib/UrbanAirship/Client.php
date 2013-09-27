@@ -8,6 +8,7 @@ use UrbanAirship\Device\AppleDevice;
 use UrbanAirship\Device\BlackberryDevice;
 use UrbanAirship\Push\PushableInterface;
 use Guzzle\Http\Client as HttpClient;
+use Guzzle\Plugin\Async\AsyncPlugin;
 
 class Client
 {
@@ -20,6 +21,7 @@ class Client
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
         $this->client = new HttpClient($baseUrl);
+        $this->client->addSubscriber(new AsyncPlugin());
     }
 
     public function getAppKey()
