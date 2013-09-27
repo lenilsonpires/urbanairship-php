@@ -1,8 +1,8 @@
 {
-    "name": "klaussilveira/urbanairship-php",
+    "name": "easytaxibr/urbanairship-php",
     "description": "PHP library that provides a simple way to communicate with Urban Airship services",
     "keywords": ["urbanairship", "push notification", "urbanairship-php"],
-    "homepage": "https://github.com/klaussilveira/urbanairship-php",
+    "homepage": "https://github.com/easytaxibr/urbanairship-php",
     "type": "library",
     "license": "BSD-2-Clause",
     "authors": [
