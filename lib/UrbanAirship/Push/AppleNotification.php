@@ -14,6 +14,7 @@ class AppleNotification extends AbstractNotification
     protected $badge;
     protected $alert;
     protected $sound;
+    protected $id;
 
     public function getDevices()
     {
@@ -77,6 +78,16 @@ class AppleNotification extends AbstractNotification
         return $this;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getPayload()
     {
         $payload = array(
@@ -90,6 +101,9 @@ class AppleNotification extends AbstractNotification
                 'alert' => $this->alert,
                 'sound' => $this->sound,
             ),
+            'user_info' => array(
+                'id' => $this->getId()
+            )
         );
 
         $payload = array_filter($payload);

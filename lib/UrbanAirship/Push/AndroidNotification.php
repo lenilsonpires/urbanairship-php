@@ -12,6 +12,7 @@ class AndroidNotification extends AbstractNotification
     protected $schedule = array();
     protected $alert;
     protected $extra;
+    protected $id;
 
     public function getDevices()
     {
@@ -58,6 +59,16 @@ class AndroidNotification extends AbstractNotification
         return $this;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getPayload()
     {
         $payload = array(
@@ -69,6 +80,9 @@ class AndroidNotification extends AbstractNotification
                 'alert' => $this->alert,
                 'extra' => $this->extra,
             ),
+            'user_info' => array(
+                'id' => $this->getId()
+            )
         );
 
         $payload = array_filter($payload);

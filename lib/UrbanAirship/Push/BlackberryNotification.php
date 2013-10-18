@@ -11,6 +11,7 @@ class BlackberryNotification extends AbstractNotification
     protected $devices = array();
     protected $contentType;
     protected $body;
+    protected $id;
 
     public function getDevices()
     {
@@ -57,6 +58,16 @@ class BlackberryNotification extends AbstractNotification
         return $this;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getPayload()
     {
         $payload = array(
@@ -67,6 +78,9 @@ class BlackberryNotification extends AbstractNotification
                 'content-type' => $this->contentType,
                 'body' => $this->body,
             ),
+            'user_info' => array(
+                'id' => $this->getId()
+            )
         );
 
         $payload = array_filter($payload);
