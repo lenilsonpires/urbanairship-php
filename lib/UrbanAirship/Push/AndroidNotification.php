@@ -78,10 +78,7 @@ class AndroidNotification extends AbstractNotification
             'schedule_for' => array_map(function ($date) { return $date->format('c'); }, $this->schedule),
             'android' => array(
                 'alert' => $this->alert,
-                'extra' => $this->extra,
-            ),
-            'user_info' => array(
-                'key' => $this->getKey()
+                'extra' => $this->getKey()
             )
         );
 
